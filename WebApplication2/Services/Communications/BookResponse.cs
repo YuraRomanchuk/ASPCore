@@ -12,7 +12,7 @@ namespace WebApplication2.Services.Communications
 
     private BookResponse(bool success, string message, Book Book) : base(success, message)
     {
-        Book = Book;
+        this.Book = Book;
     }
 
     /// <summary>
