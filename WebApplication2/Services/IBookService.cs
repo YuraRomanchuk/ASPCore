@@ -9,5 +9,7 @@ namespace WebApplication2.Services
     public interface IBookService
     {
         Task<IEnumerable<Book>> ListAsync();
+
+        Task AddAsync(Book book);
     }
 }

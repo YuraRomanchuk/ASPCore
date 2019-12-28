@@ -12,7 +12,6 @@ namespace WebApplication2.Persistance.Repositories
         public BaseRepository(AppDbContext context)
         {
             _context = context;
-            _context.Database.EnsureCreated();
         }
     }
 }

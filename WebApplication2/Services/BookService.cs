@@ -16,14 +16,15 @@ namespace WebApplication2.Services
         {
             _bookRepository = bookRepository;
         }
+
+        public async Task AddAsync(Book book)
+        {
+            await _bookRepository.AddAsync(book);
+        }
+
         public async Task<IEnumerable<Book>> ListAsync()
         {
             return await _bookRepository.ListAsync();
         }
-
-		public async Task<Book> AddAsync(Book category)
-		{
-		    await _bookRepository.AddAsync(category);			
-		}
-	}
+    }
 }

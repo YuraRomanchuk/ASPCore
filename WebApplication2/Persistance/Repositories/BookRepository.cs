@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,17 @@ namespace WebApplication2.Persistance.Repositories
         {
 
         }
+
+        public async Task AddAsync(Book book)
+        {
+            _context.Books.Add(book);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<Book>> ListAsync()
         {
             return await _context.Books.ToListAsync();
         }
+ 
     }
 }

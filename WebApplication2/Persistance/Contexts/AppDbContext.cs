@@ -12,6 +12,16 @@ namespace WebApplication2.Persistance.Contexts
         public DbSet<Book> Books { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+            Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<Book>().HasData
+            (
+                new Book { Id = 1, Author = "Unknown", BookName = "Fruits and Vegetables" } // Id set manually due to in-memory provider            
+            );
         }
     }
 }
